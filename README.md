@@ -27,3 +27,5 @@ And check out the following files:
 - ./playwright.config.ts - Playwright Test configuration
 
 Visit https://playwright.dev/docs/intro for more information.
+
+Dummy change to test pr workflow
