@@ -1,0 +1,12 @@
+{
+  "name": "steve-playwright",
+  "version": "1.0.0",
+  "description": "playwright testing",
+  "main": "index.js",
+  "scripts": {},
+  "author": "gz and sm",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.32.1"
+  }
+}
