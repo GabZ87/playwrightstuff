@@ -1,18 +1,17 @@
 import { test, expect } from '@playwright/test'
+import { Homepage } from '../pom/pages/home'
 
-test('Debenhams search example', async ({ page }) => {
-  await page.goto('https://debenhams.com/')
+test.beforeEach(async ({ page }) => {
+  const homepage = new Homepage(page)
+  await homepage.goto();
+});
 
+test.describe('Homepage', () => {
+  test('Debenhams search example', async ({ page }) => {
+    const homepage = new Homepage(page)
+    await homepage.enterSearchTerm('dress')
+    await homepage.acceptBannerCookies()
 
-  await page.getByPlaceholder('Search brands or items').click()
-
-  await page.getByPlaceholder('Search brands or items').fill('dress')
-
-  await page.keyboard.press('Enter')
-
-  await expect(page).toHaveURL(/.*dress/)
-
-  await page.locator('data-test-id=cookie-accept-all').click()
-
-  await expect(page.locator('data-test-id=search-term-dress')).toHaveText(/dress/)
+    await expect(page.locator('data-test-id=search-term-dress')).toHaveText(/dress/)
+  })
 })
