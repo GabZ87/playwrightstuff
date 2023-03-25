@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "playwright testing",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "e2e": "playwright test --ui",
+    "test": "playwright test",
+    "report": "playwright show-report"
+  },
   "author": "gz and sm",
   "license": "ISC",
   "devDependencies": {
