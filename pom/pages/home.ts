@@ -12,7 +12,7 @@ export class Homepage {
   }
 
   async goto() {
-    await this.homepage.goto('https://debenhams.com/');
+    await this.homepage.goto('/');
   }
 
   async enterSearchTerm(term: string) {
