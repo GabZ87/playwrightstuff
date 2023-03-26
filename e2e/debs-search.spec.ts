@@ -10,7 +10,7 @@ test.describe('Homepage', () => {
   test('Debenhams search example', async ({ page }) => {
     const homepage = new Homepage(page)
     const searchTerm = 'dress'
-    
+
     await homepage.enterSearchTerm(searchTerm)
     await homepage.acceptBannerCookies()
 
