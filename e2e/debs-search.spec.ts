@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { Homepage } from '../pom/pages/home'
+import { Homepage } from '../pom'
 
 test.beforeEach(async ({ page }) => {
   const homepage = new Homepage(page)
@@ -9,9 +9,11 @@ test.beforeEach(async ({ page }) => {
 test.describe('Homepage', () => {
   test('Debenhams search example', async ({ page }) => {
     const homepage = new Homepage(page)
-    await homepage.enterSearchTerm('dress')
+    const searchTerm = 'dress'
+
+    await homepage.enterSearchTerm(searchTerm)
     await homepage.acceptBannerCookies()
 
-    await expect(page.locator('data-test-id=search-term-dress')).toHaveText(/dress/)
+    await expect(page.locator(`data-test-id=search-term-${searchTerm}`)).toBeVisible()
   })
 })
